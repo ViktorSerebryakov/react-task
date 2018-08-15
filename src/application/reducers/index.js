@@ -18,7 +18,18 @@ export const appInitFail = (state, error) => state.merge({
 
 const initialApplicationState = fromJS({
   isInitialized: false,
-  error: null,
+  menuItems: [
+    {
+      id: 1,
+      title: 'Главная',
+      route: '/'
+    },
+    {
+      id: 2,
+      title: 'Таблица',
+      route: '/grid'
+    }
+  ]
 });
 
 export function application(state = initialApplicationState, action) {
