@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import immutablePropTypes from 'react-immutable-proptypes';
 import { connect } from 'react-redux';
@@ -8,6 +8,7 @@ import routes from '../routes';
 import * as Actions from './actions';
 import mapStateToProps from './selectors';
 import Navigation from '../components/navigation';
+import { Layout, Content } from './style';
 
 class Application extends Component {
   static propTypes = {
@@ -18,15 +19,16 @@ class Application extends Component {
   render() {
     const { isInitialized, menuItems } = this.props;
     return(
-      <div>
-        {isInitialized && 'application here'}
+      <Layout>
+        <Content>
         <Switch>
           {routes.map((route, i) =>
             <Route {...route} key={i} />
           )}
         </Switch>
+        </Content>
         <Navigation items={menuItems} />
-      </div>
+      </Layout>
     )
   }
 }

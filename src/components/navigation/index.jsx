@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import immutablePropTypes from 'react-immutable-proptypes';
 import {
   NavigationWrapper,
   ItemBox,
-  BurgerBox
+  HeadButtonBox
 } from './style';
 
 class Navigation extends Component {
@@ -16,12 +16,22 @@ class Navigation extends Component {
     active: false
   };
 
+  onToggleMenu = () => {
+    this.setState({
+      active: !this.state.active
+    })
+  };
+
   render() {
     const { items } = this.props;
-    const buttons = items.map(item => <ItemBox key={item.get('id')}>{item.get('title')}</ItemBox>);
+    const { active } = this.state;
+    const buttons = items.map(item =>
+      <ItemBox key={item.get('id')}>
+        <Link to={item.get('route')}>{item.get('title')}</Link>
+        </ItemBox>);
     return(
-      <NavigationWrapper>
-        <BurgerBox>Open menu</BurgerBox>
+      <NavigationWrapper active={active}>
+        <HeadButtonBox active={active} onClick={this.onToggleMenu}>Menu</HeadButtonBox>
         {buttons}
       </NavigationWrapper>
     )

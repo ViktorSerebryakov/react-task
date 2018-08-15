@@ -6,6 +6,7 @@ import { ConnectedRouter as ReduxRouter } from 'react-router-redux';
 import Application from './application';
 import history from './history';
 import store from './store';
+import './index.css';
 
 function initApp() {
   renderApp();
