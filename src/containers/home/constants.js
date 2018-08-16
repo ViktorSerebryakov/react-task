@@ -11,3 +11,10 @@ export const ACTIONS = keyMirror({
   HOME_CONTAINER_ADD_DATA_SUCCESS: null,
   HOME_CONTAINER_ADD_DATA_FAIL: null
 });
+
+export const LIST_HEADERS = [
+  'Дата',
+  'Выручка',
+  'Серебро руб',
+  'Индекс ММВБ'
+];

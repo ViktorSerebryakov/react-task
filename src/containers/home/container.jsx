@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react';
 import immutablePropTypes from 'react-immutable-proptypes';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import {CSVLink, CSVDownload} from 'react-csv';
 import * as Actions from './actions';
 import mapStateToProps from './selectors';
 import Input from '../../components/input';
@@ -19,6 +20,7 @@ class Home extends Component {
   static propTypes = {
     list: immutablePropTypes.list.isRequired,
     form: immutablePropTypes.map.isRequired,
+    csvData: PropTypes.array.isRequired,
 
     mountAction: PropTypes.func.isRequired,
     sortAction: PropTypes.func.isRequired,
@@ -57,7 +59,7 @@ class Home extends Component {
   };
 
   renderForm = () => {
-    const { form, addDataAction } = this.props;
+    const { form, addDataAction, csvData } = this.props;
     return(
       <FormWrapper>
         <Row>
@@ -82,6 +84,11 @@ class Home extends Component {
         </Row>
         <ButtonWrapper>
             <Button onClick={addDataAction}>Добавить</Button>
+        </ButtonWrapper>
+        <ButtonWrapper>
+          <Button>
+            <CSVLink data={csvData}>Скачать в csv</CSVLink>
+          </Button>
         </ButtonWrapper>
       </FormWrapper>
     )

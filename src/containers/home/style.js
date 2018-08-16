@@ -58,6 +58,20 @@ export const Button = styled.div`
   &:hover {
     background-color: white;
     color: #000000;
+    
+    & a {
+      color: #000000;
+    }
+  }
+  
+  & a {
+    padding: 10px 45px;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    text-decoration: none;
+    color: white;
+    
   }
 `;
 
