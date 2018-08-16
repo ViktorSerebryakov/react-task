@@ -26,12 +26,12 @@ class Navigation extends Component {
     const { items } = this.props;
     const { active } = this.state;
     const buttons = items.map(item =>
-      <ItemBox key={item.get('id')}>
+      <ItemBox onClick={this.onToggleMenu} key={item.get('id')}>
         <Link to={item.get('route')}>{item.get('title')}</Link>
         </ItemBox>);
     return(
       <NavigationWrapper active={active}>
-        <HeadButtonBox active={active} onClick={this.onToggleMenu}>Menu</HeadButtonBox>
+        <HeadButtonBox active={active} onClick={this.onToggleMenu} />
         {buttons}
       </NavigationWrapper>
     )

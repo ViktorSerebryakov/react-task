@@ -1,5 +1,5 @@
 import homePage from '../containers/home';
-import gridPage from '../containers/grid';
+import chartsPage from '../containers/charts';
 
 const routes = [
   {
@@ -10,9 +10,9 @@ const routes = [
   },
   {
     exact: true,
-    path: '/grid',
-    title: 'Таблица',
-    component: gridPage
+    path: '/charts',
+    title: 'Графики',
+    component: chartsPage
   },
 ];
 

@@ -26,8 +26,8 @@ const initialApplicationState = fromJS({
     },
     {
       id: 2,
-      title: 'Таблица',
-      route: '/grid'
+      title: 'Графики',
+      route: '/charts'
     }
   ]
 });

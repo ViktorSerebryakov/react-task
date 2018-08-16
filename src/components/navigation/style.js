@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const NavigationWrapper = styled.div`
   position: fixed;
   top: 0;
-  left: ${(props) =>  (props.active ? '0' : '-115px')};
+  left: ${(props) =>  (props.active ? '0' : '-160px')};
   width: 159px;
   height: 100vh;
   background-color: #f5f5f5;
@@ -12,11 +12,15 @@ export const NavigationWrapper = styled.div`
 `;
 
 export const HeadButtonBox = styled.div`
+  position: absolute;
+  left: 175px;
+  border-radius: 50%;
   padding: 16px;
   border: 1px solid rgba(0, 0, 0, 0.12);
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color: #f7f7f7;
   
   &:after {
     content: "";
@@ -52,6 +56,7 @@ export const ItemBox = styled.div`
   }
   
   & a {
+    display: block;
     text-decoration: none;
     color: rgba( 0, 0, 0, 0.8);
     

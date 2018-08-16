@@ -34,8 +34,17 @@ const initialState = fromJS({
       index: 2195.19
     },
   ],
-  isMounted: false
+  isMounted: false,
+  sortBy: '',
+  form: {
+    date: '',
+    receipts: '',
+    price: '',
+    index: ''
+  }
 });
+
+const addData = (state, payload) => state.set('list', payload);
 
 export function homeReducer(state = initialState, action) {
   switch (action.type) {
@@ -44,6 +53,15 @@ export function homeReducer(state = initialState, action) {
 
     case ACTIONS.HOME_CONTAINER_UNMOUNT:
       return state.set('isMounted', false);
+
+    case ACTIONS.HOME_CONTAINER_SORT_TABLE:
+      return state.set('sortBy', action.payload);
+
+    case ACTIONS.HOME_CONTAINER_CHANGE_FORM:
+      return state.setIn(['form', action.payload.id], action.payload.value);
+
+    case ACTIONS.HOME_CONTAINER_ADD_DATA_SUCCESS:
+      return addData(state, action.payload);
 
     default:
       return state;
